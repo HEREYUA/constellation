@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-import JUHE_APPKEY from '@/configs/keys'
+import {JUHE_APPKEY} from '@/configs/keys'
 
 function axiosGet(options){
     axios(options.url+'&key='+JUHE_APPKEY)
