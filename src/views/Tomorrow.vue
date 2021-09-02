@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import {onMounted} from 'vue'
+import {onMounted,computed} from 'vue'
 import {useStore} from 'vuex'
 import getData from '@/services'
 export default {

@@ -2,13 +2,13 @@
   <div style="margin-top:20%">
        <ConsCard
       :name="monthData.name"
-      :allIndex="monthData.all"
+      :allIndex="Number(monthData.all)"
       />
   </div>
 </template>
 
 <script>
-import {onMounted} from 'vue'
+import {onMounted,computed} from 'vue'
 import {useStore} from 'vuex'
 import getData from '@/services'
 export default {
