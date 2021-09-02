@@ -1,18 +1,32 @@
 <template>
-  <div>
-      today
+  <div style="margin-top:20%">
+      <ConsCard
+      :name="todayData.name"
+      :allIndex="todayData.all"
+      />
   </div>
 </template>
 
 <script>
-import {onMounted} from 'vue'
-import {getData} from '@/services/request'
+
+import {onMounted,computed} from 'vue'
+import {useStore} from 'vuex'
+import getData from '@/services'
 export default {
 name:'today',
+
 setup(){
+  const store =useStore()
+  const state =store.state
   onMounted(()=>{
-    getData('金牛座','week')
+    getData(store)
+   console.log(state.today)
   })
+
+
+  return{
+    todayData:computed(()=>state.today)
+  }
 }
 }
 </script>
