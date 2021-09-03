@@ -30,7 +30,7 @@ import { ref } from 'vue';
 import { useStore } from 'vuex';
 
 
-// import getData from '@/services';
+import getData from '@/services';
 
 export default {
   name: 'NavBar',
@@ -47,7 +47,7 @@ export default {
       curIdx.value =index
       // console.log(e.target.innerText)
       store.dispatch('setConsName',e.target.innerText)
-
+      getData(store)
       console.log(store.state.consName)
     }
     return {

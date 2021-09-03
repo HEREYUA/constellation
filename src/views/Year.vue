@@ -4,20 +4,38 @@
       :name="yearData.name"
       :allIndex="yearData.all"
       />
+      <ConsList
+      :data="yearData"
+      />
   </div>
 </template>
 
 <script>
-import {computed, onMounted} from 'vue'
+import ConsList from '@/components/list/Year.vue'
+import {computed, onMounted,ref,onActivated} from 'vue'
 import {useStore} from 'vuex'
 import getData from '@/services'
 export default {
 name:'year',
+components:{
+  ConsList
+},
 setup(){
-  var store =useStore()
+  const store =useStore()
+  const state =store.state
+  const status = ref('')
   onMounted(()=>{
     getData(store)
+   status.value =state.consName
   })
+
+  onActivated(()=>{
+    if(status.value!=state.consName){
+      getData(store)
+      status.value =state.consName
+    }
+  })
+
   return{
     yearData:computed(()=>store.state.year)
   }

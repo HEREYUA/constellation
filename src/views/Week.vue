@@ -4,20 +4,38 @@
       :name="weekData.name"
       :allIndex="weekData.all"
       />
+        <ConsList
+      :data="weekData"
+      />
   </div>
 </template>
 
 <script>
-import {onMounted,computed} from 'vue'
+import ConsList from '@/components/list/Week.vue'
+import {onMounted,computed,ref,onActivated} from 'vue'
 import {useStore} from 'vuex'
 import getData from '@/services'
 export default {
 name:'week',
+components:{
+  ConsList
+},
 setup(){
-  var store =useStore()
+   const store =useStore()
+  const state =store.state
+  const status = ref('')
   onMounted(()=>{
     getData(store)
+   status.value =state.consName
   })
+
+  onActivated(()=>{
+    if(status.value!=state.consName){
+      getData(store)
+      status.value =state.consName
+    }
+  })
+
 
   return{
     weekData:computed(()=>store.state.week)
