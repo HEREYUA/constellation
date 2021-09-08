@@ -1,5 +1,6 @@
 <template>
- <my-header>星座物语</my-header>
+<div id="app" style="height:100%">
+  <my-header>星座物语</my-header>
  <nav-bar/>
  <error-tip/>
    <router-view v-slot="{ Component }" v-if="!errorCode">
@@ -9,6 +10,8 @@
     </router-view>
  
   <tab/>
+</div>
+ 
 </template>
 
 <script>

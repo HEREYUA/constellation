@@ -1,5 +1,5 @@
 <template>
-  <div style="margin-top:20%;margin-bottom:15%">
+  <div style="position:absolute;overflow:auto;bottom:.44rem;top:.86rem">
       <ConsCard
       :name="todayData.name"
       :allIndex="todayData.all"

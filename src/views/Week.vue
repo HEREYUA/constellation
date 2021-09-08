@@ -1,5 +1,5 @@
 <template>
-  <div style="margin-top:20%">
+  <div  style="position:absolute;overflow:auto;bottom:.44rem;top:.86rem">
       <ConsCard
       :name="weekData.name"
       :allIndex="weekData.all"

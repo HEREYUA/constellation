@@ -62,7 +62,7 @@ export default {
 
 <style lang="scss" scoped>
   .nav-bar {
-    position: fixed;
+    position: absolute;
     top: .44rem;
     left: 0;
     z-index: 1;

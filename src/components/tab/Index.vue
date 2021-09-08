@@ -44,7 +44,7 @@ export default {
   .tab {
     display: flex;
     flex-direction: row;
-    position: fixed;
+    position: absolute;
     bottom: 0;
     left: 0;
     z-index: 1;

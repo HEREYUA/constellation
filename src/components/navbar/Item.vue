@@ -14,6 +14,7 @@ export default {
     index: Number
   },
   setup(props,{emit}){
+   
     const navbarClick = (index,$event)=>{
       emit('navbarClick',index,$event)
     }
